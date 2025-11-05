@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:les_architectes_cosmiques/features/user/presentation/controller/user_controller.dart';
 
 import '../controller/planet_controller.dart';
 import '../widgets/planet_card.dart';
@@ -9,19 +10,23 @@ class PlanetsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<PlanetController>();
-    controller.loadPlanetsForUser(1);
+    final PlanetController planetController = Get.find<PlanetController>();
+    final UserController userController = Get.find<UserController>();
+
+    final currentUser = userController.currentUser.value;
+    if (currentUser != null) {
+      planetController.loadPlanetsForUser(currentUser.id);
+    }
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Liste des planètes')),
       body: Obx(() {
-        if (controller.planets.isEmpty) {
+        if (planetController.planets.isEmpty) {
           return const Center(child: Text('Aucune planète !'));
         }
         return ListView.builder(
-          itemCount: controller.planets.length,
+          itemCount: planetController.planets.length,
           itemBuilder: (context, index) =>
-              PlanetCard(planet: controller.planets[index]),
+              PlanetCard(planet: planetController.planets[index]),
         );
       }),
     );

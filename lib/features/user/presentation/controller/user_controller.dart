@@ -54,7 +54,7 @@ class UserController extends GetxController {
       // Création du nouvel utilisateur en respectant le modèle User
       final newUser = User(
         // Génère un ID 'int' unique basé sur le temps actuel.
-        id: DateTime.now().millisecondsSinceEpoch,
+        id: 1,
         name: name,
         // La liste planetIds aura sa valeur par défaut comme défini dans le modèle User.
       );
@@ -67,6 +67,7 @@ class UserController extends GetxController {
 
       // Efface le champ de texte après la création
       nameController.clear();
+      Get.offAllNamed('/dashboard');
     } catch (e) {
       Get.snackbar('Erreur', 'Impossible de créer l\'utilisateur: $e');
     } finally {

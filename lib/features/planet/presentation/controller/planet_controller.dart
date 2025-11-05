@@ -12,6 +12,8 @@ class PlanetController extends GetxController {
 
   Future<void> loadPlanetsForUser(int userId) async {
     planets.value = await repository.getPlanetsByUser(userId);
+    print('✅ Planètes chargées');
+    print('✅ Planètes chargées : ${planets.value}');
   }
 
   Future<void> addResourceToPlanet(int planetId, Resource resource) async {
