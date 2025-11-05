@@ -1,0 +1,41 @@
+gitignore
+# Fichiers générés par les IDE (Android Studio, VS Code, etc.)
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.dart_tool/
+
+# Fichiers de build et de dépendances
+build/
+.pub/
+.pub-cache/
+
+# Fichiers de configuration spécifiques à la plateforme
+/android/local.properties
+/ios/Pods/
+/ios/Flutter/App.framework
+/ios/Flutter/engine.xcconfig
+/ios/Flutter/Generated.xcconfig
+/ios/Flutter/podfuncs.rb
+/ios/.symlinks/
+/ios/Runner/GeneratedPluginRegistrant.h
+/ios/Runner/GeneratedPluginRegistrant.m
+/ios/Runner.xcworkspace/xcshareddata/
+/ios/Runner.xcworkspace/xcuserdata/
+
+# Fichiers générés par Flutter
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+
+# Fichiers de log et de crash
+*.log
+app_*.apk
+app-*.aab
+flutter_*.log
+
+# Fichiers spécifiques au système d'exploitation
+.DS_Store
+Thumbs.db
