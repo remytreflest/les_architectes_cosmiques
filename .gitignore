@@ -1,41 +1,45 @@
-gitignore
-# Fichiers générés par les IDE (Android Studio, VS Code, etc.)
-.idea/
-.vscode/
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
 *.iml
 *.ipr
 *.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
 .dart_tool/
-
-# Fichiers de build et de dépendances
-build/
-.pub/
-.pub-cache/
-
-# Fichiers de configuration spécifiques à la plateforme
-/android/local.properties
-/ios/Pods/
-/ios/Flutter/App.framework
-/ios/Flutter/engine.xcconfig
-/ios/Flutter/Generated.xcconfig
-/ios/Flutter/podfuncs.rb
-/ios/.symlinks/
-/ios/Runner/GeneratedPluginRegistrant.h
-/ios/Runner/GeneratedPluginRegistrant.m
-/ios/Runner.xcworkspace/xcshareddata/
-/ios/Runner.xcworkspace/xcuserdata/
-
-# Fichiers générés par Flutter
 .flutter-plugins
 .flutter-plugins-dependencies
-.metadata
+.pub-cache/
+.pub/
+/build/
 
-# Fichiers de log et de crash
-*.log
-app_*.apk
-app-*.aab
-flutter_*.log
+# Symbolication related
+app.*.symbols
 
-# Fichiers spécifiques au système d'exploitation
-.DS_Store
-Thumbs.db
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
