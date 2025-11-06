@@ -1,41 +1,14 @@
-import 'package:les_architectes_cosmiques/features/planet/domain/entities/ressource.dart';
+import 'package:les_architectes_cosmiques/shared/datas/planets.dart';
 
 import '../../domain/entities/planet.dart';
 import '../../domain/repositories/planet_repository.dart';
 
 class InMemoryPlanetRepository implements PlanetRepository {
-  final List<Planet> _planets = [];
+  List<Planet> _planets = [];
 
   InMemoryPlanetRepository() {
     // Création des ressources pour notre planète par défaut
-    final defaultResources = [
-      const Resource(id: 1, planetId: 1, type: 'Métal', quantity: 1500.5),
-      const Resource(id: 2, planetId: 1, type: 'Cristal', quantity: 870.0),
-      const Resource(id: 3, planetId: 1, type: 'Deutérium', quantity: 5000.0),
-    ];
-
-    // Création de la planète par défaut avec ses ressources
-    final defaultPlanet = Planet(
-      id: 1,
-      userId: 1, // En supposant qu'elle appartient à l'utilisateur par défaut
-      name: 'Terra Nova',
-      politicalRegime: 'Démocratie galactique',
-      resources: defaultResources,
-      isColonized: true,
-    );
-
-    const defaultPlanet2 = Planet(
-      id: 2,
-      userId: 1, // En supposant qu'elle appartient à l'utilisateur par défaut
-      name: 'Mars',
-      politicalRegime: '',
-      resources: [],
-      isColonized: false,
-    );
-
-    // Ajout de la planète à notre liste en mémoire
-    _planets.add(defaultPlanet);
-    _planets.add(defaultPlanet2);
+    _planets = defaultPlanets;
   }
 
   @override

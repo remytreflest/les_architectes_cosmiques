@@ -26,7 +26,7 @@ class PlanetCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  planet.name,
+                  planet.name.toString(),
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
