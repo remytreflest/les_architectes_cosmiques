@@ -12,8 +12,11 @@ class MyApp extends StatelessWidget {
       title: 'les_architectes_cosmiques',
       debugShowCheckedModeBanner: false,
       getPages: [
-        GetPage(name: '/home', page: () => const UserView()),
         GetPage(name: '/dashboard', page: () => const DashboardView()),
+        GetPage(name: '/home', page: () => const UserView()),
+        GetPage(name: '/technologies', page: () => const DashboardView()),
+        GetPage(name: '/diplomacy', page: () => const DashboardView()),
+        GetPage(name: '/bonus', page: () => const DashboardView()),
       ],
       initialRoute: '/home',
     );

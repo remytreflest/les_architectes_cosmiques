@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:les_architectes_cosmiques/features/planet/presentation/controller/planet_controller.dart';
 import 'package:les_architectes_cosmiques/features/planet/presentation/pages/planet_list_view.dart';
 import 'package:les_architectes_cosmiques/features/user/presentation/controller/user_controller.dart';
+import 'package:les_architectes_cosmiques/shared/widgets/custom_bottom_nav_bar.dart';
 
 class DashboardView extends StatelessWidget {
   const DashboardView({super.key});
@@ -14,6 +15,7 @@ class DashboardView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Dashboard')),
+      bottomNavigationBar: CustomBottomNavBar(),
       body: Obx(() {
         final user = userController.currentUser.value;
         final planets = planetController.planets

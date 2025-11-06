@@ -9,8 +9,11 @@ class PlanetCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isColonized = planet.isColonized;
+
     return Card(
-      elevation: 3,
+      color: isColonized ? null : Colors.grey.withOpacity(0.5),
+      elevation: isColonized ? 3 : 1, // Moins d'ombre si non colonisée
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
@@ -18,60 +21,68 @@ class PlanetCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Nom de la planète
+            // Nom de la planète (toujours visible)
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   planet.name,
-                  style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      // Le texte est aussi grisé si non colonisé
+                      color: isColonized ? null : Colors.white70),
                 ),
-                if (planet.isColonized)
+                // --- FIN DE LA MODIFICATION ---
+                if (isColonized)
                   const Icon(Icons.check_circle, color: Colors.green, size: 22)
                 else
                   const Icon(Icons.radio_button_unchecked,
-                      color: Colors.redAccent, size: 22),
+                      color: Colors.white70, size: 22),
               ],
             ),
-            const SizedBox(height: 8),
 
-            // Régime politique
-            Text(
-              'Régime : ${planet.politicalRegime ?? "Aucun"}',
-              style: const TextStyle(
-                  fontSize: 16,
-                  fontStyle: FontStyle.italic,
-                  color: Colors.grey),
-            ),
-            const SizedBox(height: 12),
-
-            // --- MODIFICATION ICI ---
-            // Titre pour la section des ressources
-            const Text(
-              'Ressources :',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-            ),
-            const SizedBox(height: 4),
-
-            // Affiche la liste des ressources
-            // On utilise une Column pour afficher chaque ressource sur une nouvelle ligne.
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              // planet.resources.map(...) transforme chaque objet 'Resource' en un widget 'Text'.
-              // .toList() convertit le résultat en une liste de widgets.
-              children: planet.resources.map((resource) {
-                return Padding(
-                  padding: const EdgeInsets.only(left: 8.0, top: 4.0),
-                  child: Text(
-                    // Affiche le nom et la quantité pour chaque ressource
-                    '• ${resource.type} : ${resource.quantity}',
-                    style: const TextStyle(fontSize: 14),
+            // --- AFFICHAGE CONDITIONNEL DES INFORMATIONS ---
+            // Si la planète est colonisée, on affiche le reste des informations.
+            if (isColonized)
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 8),
+                  // Régime politique
+                  Text(
+                    'Régime : ${planet.politicalRegime ?? "Aucun"}',
+                    style: const TextStyle(
+                        fontSize: 16,
+                        fontStyle: FontStyle.italic,
+                        color: Colors.grey),
                   ),
-                );
-              }).toList(),
-            ),
-            // --- FIN DE LA MODIFICATION ---
+                  const SizedBox(height: 12),
+                  // Titre pour la section des ressources
+                  const Text(
+                    'Ressources :',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  ),
+                  const SizedBox(height: 4),
+                  // Affiche la liste des ressources
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: planet.resources.map((resource) {
+                      return Padding(
+                        padding: const EdgeInsets.only(left: 8.0, top: 4.0),
+                        child: Text(
+                          // Affiche le nom et la quantité pour chaque ressource
+                          '• ${resource.type} : ${resource.quantity}',
+                          style: const TextStyle(fontSize: 14),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                ],
+              )
+            // Si la planète n'est pas colonisée, on n'affiche rien de plus.
+            // Le `if` sans `else` est parfait pour cela.
+            // --- FIN DE L'AFFICHAGE CONDITIONNEL ---
           ],
         ),
       ),

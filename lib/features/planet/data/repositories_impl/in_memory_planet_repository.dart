@@ -24,8 +24,18 @@ class InMemoryPlanetRepository implements PlanetRepository {
       isColonized: true,
     );
 
+    const defaultPlanet2 = Planet(
+      id: 2,
+      userId: 1, // En supposant qu'elle appartient à l'utilisateur par défaut
+      name: 'Mars',
+      politicalRegime: '',
+      resources: [],
+      isColonized: false,
+    );
+
     // Ajout de la planète à notre liste en mémoire
     _planets.add(defaultPlanet);
+    _planets.add(defaultPlanet2);
   }
 
   @override
