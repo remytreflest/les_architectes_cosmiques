@@ -5,6 +5,7 @@ import 'package:les_architectes_cosmiques/features/planet/domain/repositories/pl
 import 'package:les_architectes_cosmiques/shared/datas/planets.dart';
 
 import '../../domain/entities/planet.dart';
+import '../../domain/entities/planet_name.dart';
 
 class PlanetController extends GetxController {
   final PlanetRepository repository;
@@ -36,9 +37,12 @@ class PlanetController extends GetxController {
   }
 
   Future<void> loadPlanetsForUser(int userId) async {
-    planets.value = await repository.getPlanetsByUser(userId);
-    print('✅ Planètes chargées');
-    print('✅ Planètes chargées : ${planets.value}');
+    // planets.value = await repository.getPlanetsByUser(userId);
+    // print('✅ Planètes chargées');
+    // print('✅ Planètes chargées : ${planets.value}');
+    Planet p = const Planet(id: 3, userId: 5, name: PlanetName.terre);
+
+    repository.addPlanet(p);
   }
 
   Future<void> addResourceToPlanet(int planetId, Resource resource) async {

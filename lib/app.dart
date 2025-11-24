@@ -4,6 +4,8 @@ import 'package:les_architectes_cosmiques/features/building/presentation/pages/b
 import 'package:les_architectes_cosmiques/features/dashboard/presentation/pages/dashboard_view.dart';
 import 'package:les_architectes_cosmiques/features/user/presentation/pages/user_view.dart';
 
+import 'core/bindings/app_bindings.dart';
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -12,6 +14,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'les_architectes_cosmiques',
       debugShowCheckedModeBanner: false,
+      initialBinding: AppBindings(),
       getPages: [
         GetPage(name: '/dashboard', page: () => const DashboardView()),
         GetPage(name: '/home', page: () => const UserView()),

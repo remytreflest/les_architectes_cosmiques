@@ -1,4 +1,5 @@
 import 'package:les_architectes_cosmiques/features/building/domain/entities/building.dart';
+import 'package:les_architectes_cosmiques/features/planet/domain/entities/planet_name.dart';
 import 'package:les_architectes_cosmiques/features/planet/domain/entities/ressource.dart';
 
 class Planet {
@@ -47,7 +48,7 @@ class Planet {
   Planet copyWith({
     int? id,
     int? userId,
-    PlanetName? name,
+      PlanetName? name,
     String? politicalRegime,
     List<Resource>? resources,
     bool? isColonized,
@@ -64,17 +65,4 @@ class Planet {
       );
 }
 
-enum PlanetName {
-  mercure('Mercure'),
-  venus('Vénus'),
-  terre('Terra'),
-  mars('Mars'),
-  jupiter('Jupiter'),
-  saturne('Saturne'),
-  uranus('Uranus'),
-  neptune('Neptune'),
-  pluton('Pluton');
 
-  final String label;
-  const PlanetName(this.label);
-}

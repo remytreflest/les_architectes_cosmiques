@@ -16,6 +16,7 @@ class PlanetsListView extends StatelessWidget {
     final currentUser = userController.currentUser.value;
     if (currentUser != null) {
       planetController.loadPlanetsForUser(currentUser.id);
+      print('✅ Planètes chargées');
     }
 
     return Scaffold(

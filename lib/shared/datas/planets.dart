@@ -2,6 +2,8 @@ import 'package:les_architectes_cosmiques/features/building/domain/entities/buil
 import 'package:les_architectes_cosmiques/features/planet/domain/entities/planet.dart';
 import 'package:les_architectes_cosmiques/features/planet/domain/entities/ressource.dart';
 
+import '../../features/planet/domain/entities/planet_name.dart';
+
 final defaultPlanets = [
   Planet(
     id: 1,
