@@ -6,6 +6,7 @@ import 'features/game/data/datasources/local_storage_datasource.dart';
 import 'features/game/data/datasources/solar_system_remote_datasource.dart';
 import 'features/game/data/repositories/game_repository_impl.dart';
 import 'features/game/domain/repositories/game_repository.dart';
+import 'features/game/domain/usecases/colonize_planet.dart';
 import 'features/game/domain/usecases/create_new_game.dart';
 import 'features/game/domain/usecases/fetch_planet_names.dart';
 import 'features/game/domain/usecases/load_game.dart';
@@ -22,6 +23,7 @@ Future<void> init() async {
       saveGame: sl(),
       createNewGame: sl(),
       fetchPlanetNames: sl(),
+      colonizePlanet: sl(),
     ),
   );
 
@@ -30,6 +32,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => SaveGame(sl()));
   sl.registerLazySingleton(() => CreateNewGame(sl()));
   sl.registerLazySingleton(() => FetchPlanetNames(sl()));
+  sl.registerLazySingleton(() => ColonizePlanet(sl()));
 
   // Repository
   sl.registerLazySingleton<GameRepository>(
