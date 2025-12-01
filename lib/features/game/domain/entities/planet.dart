@@ -161,7 +161,7 @@ class Planet {
     double multiplier,
   ) {
     // Production de base : 10 + niveau × 100
-    final baseProduction = 10 + (mineLevel * 1000.0);
+    final baseProduction = 10 + (mineLevel * 10000.0);
     return baseProduction * energyRatio * multiplier;
   }
 
@@ -171,7 +171,7 @@ class Planet {
     double multiplier,
   ) {
     // Production de base : 5 + niveau × 50
-    final baseProduction = 5 + (mineLevel * 500.0);
+    final baseProduction = 5 + (mineLevel * 5000.0);
     return baseProduction * energyRatio * multiplier;
   }
 
@@ -181,7 +181,7 @@ class Planet {
     double multiplier,
   ) {
     // Production de base : niveau × 25
-    final baseProduction = synthLevel * 250.0;
+    final baseProduction = synthLevel * 2500.0;
     return baseProduction * energyRatio * multiplier;
   }
 

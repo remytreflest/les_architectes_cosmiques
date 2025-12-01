@@ -98,7 +98,7 @@ class GameController extends ChangeNotifier {
     _resourceTimer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (_gameData != null) {
         for (var planet in _gameData!.planets) {
-          planet.updateResources(globalTechnologies: _gameData!.technologies);
+          planet.updateResources();
         }
         saveGameData();
         notifyListeners();
