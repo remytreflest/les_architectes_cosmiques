@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:les_architectes_cosmiques/features/game/presentation/pages/onboarding_page.dart';
+import 'package:les_architectes_cosmiques/features/game/presentation/pages/player_name_screen.dart';
 
 import '../../../../injection_container.dart';
 import '../controllers/game_controller.dart';
 import 'main_game_screen.dart';
-import 'player_name_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -35,7 +36,15 @@ class _SplashScreenState extends State<SplashScreen> {
       );
     } else {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const PlayerNameScreen()),
+        MaterialPageRoute(
+          builder: (_) => OnboardingPage(
+            onComplete: () => {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (_) => PlayerNameScreen())),
+            },
+          ),
+        ),
       );
     }
   }

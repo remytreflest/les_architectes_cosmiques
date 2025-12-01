@@ -1,5 +1,5 @@
 class GameConstants {
-  static const String storageKey = 'game_data_v3';
+  static const String storageKey = 'game_data_v4';
   static const String solarSystemApiUrl =
       'https://api.le-systeme-solaire.net/rest/bodies/';
   static const String apiKey = '1234-4567-8912-1234';
