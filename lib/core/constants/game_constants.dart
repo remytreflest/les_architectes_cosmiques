@@ -1,8 +1,8 @@
 class GameConstants {
-  static const String storageKey = 'game_data';
+  static const String storageKey = 'game_data_v2';
   static const String solarSystemApiUrl =
       'https://api.le-systeme-solaire.net/rest/bodies/';
-  static const String apiKey = 'xxxx-xxxx-xxxx-xxxx';
+  static const String apiKey = '1234-4567-8912-1234';
 
   static const Map<String, String> planetTranslations = {
     'Mercury': 'Mercure',

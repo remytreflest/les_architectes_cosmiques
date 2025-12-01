@@ -44,7 +44,7 @@ class Planet {
     final solarPlantLevel = buildings['solar_plant'] ?? 0;
 
     energyProduction = 0;
-    energyProduction += (20 * pow(1.22, solarPlantLevel - 1)).round();
+    energyProduction += (20 * pow(1.22, solarPlantLevel)).round();
 
     energyConsumption = 0;
     for (int i = 1; i <= metalMineLevel; i++) {
