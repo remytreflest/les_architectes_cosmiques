@@ -219,7 +219,7 @@ class BuildingsPage extends StatelessWidget {
                             planet.crystal -= crystalCost;
                             planet.deuterium -= deuteriumCost;
                             onBuild(building.id);
-                            planet.updateResources();
+                            planet.updateResources(globalTechnologies: {});
                           }
                         : null,
                     child: Text(
