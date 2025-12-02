@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../injection_container.dart';
 import '../controllers/game_controller.dart';
 import 'main_game_screen.dart';
+import 'onboarding_page.dart';
 import 'player_name_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -35,7 +36,9 @@ class _SplashScreenState extends State<SplashScreen> {
       );
     } else {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const PlayerNameScreen()),
+        MaterialPageRoute(
+          builder: (_) => OnboardingScreen(nextPage: PlayerNameScreen()),
+        ),
       );
     }
   }
